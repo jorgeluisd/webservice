@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	RewriteCond %{ENV:REDIRECT_STATUS} ^$
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	RewriteRule (.*)$ rest.php?param=$1
+
+</IfModule>
