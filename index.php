@@ -2,8 +2,8 @@
 	require 'clases.inc.php';
 	use \clases\Product;
 	$product = new Product;
-	$product->getFileProducts("pub/products.json");
- ?>
+	$response = $product->getFileProducts("pub/products.json");
+?>
 <html>
 	<head>
 		<title>Test</title>
@@ -12,6 +12,21 @@
 	</head>
 
 	<body>
+
+		<ul>
+			<?php
+				if ($response) {
+					foreach ($response as $arreglo) {
+						if ($arreglo['status']) {
+							echo "<li> <strong>".$arreglo['name']."</strong> INSERTADO CORRECTAMENTE </li>";
+						}
+						else{
+							echo "<li> <strong>".$arreglo['name']."</strong> ERROR AL INSERTAR. LA OPERACION FUE DEVUELTA. </li>";	
+						}
+					}
+				}
+			 ?>
+		</ul>
 
 		<h1>Test</h1>
 		<pre>

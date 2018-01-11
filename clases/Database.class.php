@@ -14,13 +14,10 @@
 			private $cnx_string;
 
 			public function __construct(){
-
 				$this->cnx_string = "mysql:host=".self::HOST."; dbname=".self::NAME;
-
 			}
 
 			public function conect(){
-
 				return new PDO($this->cnx_string, self::USER, self::PASS);
 			}
 
