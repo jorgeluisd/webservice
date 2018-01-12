@@ -1,11 +1,13 @@
-()=>{
+(()=>{
 	var seeAll = document.querySelector(".see-all");
 	var consult = document.querySelector(".consult");
 	var result = document.querySelector("#result");
 	var body = document.querySelector("body");
 
 	body.addEventListener("click",(e)=>{
-		(e.target.name=="del")? seeAllProducts("products/"+e.target.id+"/destroy"):;
+		if (e.target.name=="del"){
+			seeAllProducts("products/"+e.target.id+"/destroy");	
+		} 
 	});
 
 	seeAll.addEventListener("click",()=>{seeAllProducts("products")} );
@@ -109,5 +111,4 @@
 	function parseReponse(response){
 		return (typeof response == "string")? JSON.parse(response) : response;
 	}
-};
-
+})();
